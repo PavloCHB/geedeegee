@@ -1,0 +1,81 @@
+{% extends "layouts/main.html" %}
+{% load static %}
+
+{% block javascript %}
+<script src="{% static "scripts/manager.js"%}" defer></script>
+{% endblock javascript %}
+
+
+{% block content %}
+
+<div class="manager">
+    <div class="manager-rows">
+
+        <div class="row row-guide">
+            <div class="column select">
+                <div class="checkbox check-all" data-state="off">
+                    <img src="{% static "images/tick-icon.svg" %}" alt="selected">
+                </div>
+            </div>
+            <div class="column name">Object</div>
+            <div class="column quantity">Qty</div>
+            <div class="column price"> Price Unit</div>
+            <div class="column total"> Price Total</div>
+            <div class="column date"> Date</div>
+        </div>
+
+        {% for i in items %}
+
+        <div class="row collapsed">
+            <div class="row-main">
+                <div class="column select">
+                    <div class="checkbox" data-state="off">
+                        <img src="{% static "images/tick-icon.svg" %}" alt="selected">
+                    </div>
+                </div>
+                <div class="column id d-none">{{i.id}}</div>
+                <div class="column name">{{i.name}}</div>
+                <div class="column quantity">{{i.quantity}}</div>
+                <div class="column price"> {{i.price}}</div>
+                <div class="column total">{{i.total}}</div>
+                <div class="column date"> {{i.date}}</div>
+            </div>
+            <div class="row-extended">
+             <p class="details">{{i.text}}</p>
+             <p class="creator"> Added by Pavlo Chocho</p>
+             <a href="/manager/{{i.id}}">edit</a>
+            </div>
+        </div>
+
+        {% endfor %}
+        
+        <div class="row row-options">
+            <button id="add-item" class="add-button"><img src="{% static "images/plus.svg" %}" alt="Add item"></button>       
+        </div>
+        
+    </div>
+
+    <form method="POST" action="" id="new-item" class="d-none">
+        {% csrf_token %}
+        <h2>New Item</h2>
+        <label for="item">Item</label>
+        <input id="name" name="item" type="text" placeholder="Item name">
+        <label for="details">Details</label>
+        <input id="details" name="details" type="text" placeholder="Brand/Store/Discount">
+        <label for="quantity">Quantity</label>
+        <input id="quantity" name="quantity" type="number" min="0" step="1" value="1">
+        <label for="price">Price</label>
+        <input id="price" name="price" type="number" min="0" step="1" value="0">
+        <label for="date">Date</label>
+        <input id="date" name="date" type="date">
+        <div class="options">
+            <button type="button" id="add-item-cancel" class="cancel-button">Cancel</button>
+            <button type="submit" id="add-item-confirm" class="add-button">Confirm</button>
+        </div>
+        
+    </form>
+</div> 
+
+
+
+{% endblock content %}

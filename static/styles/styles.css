@@ -1,0 +1,388 @@
+:root{
+    --beige: beige;
+    --beige-darker: rgb(210, 197, 185);
+    --beige-titles: rgb(165, 130, 97);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+
+    /* border: 2px red solid; */
+}
+
+.d-none{
+    display: none !important;
+}
+
+a{
+    color: wheat;
+    text-decoration: none;
+}
+a:visited{
+    color: wheat;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background: beige;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    position: relative;
+}
+
+div#content{
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+h1,h2{
+    text-align: center;
+    
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+/*#region Navs*/
+
+nav {
+    height: 60px;
+    width: 100%;
+    background-color: rgb(49, 49, 49);
+    color: wheat;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 20px;
+    position: relative;
+    font-size: 1rem;
+}
+
+nav a{
+    font-weight: bold;
+    margin-inline: 10px;
+}
+
+/*#endregion */
+
+/*#region Footer*/
+
+footer {
+    height: 60px;
+    width: 100%;
+    background-color: rgb(49, 49, 49);
+    color: wheat;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    position: relative;
+    font-size: 1rem;
+}
+/*#endregion*/
+
+/*#region Login */
+
+.login{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.login button{
+    height: 60px;
+    padding: 20px;
+    background-color: green;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: all ease-in .1s;
+}
+
+.login button:hover{
+    background-color: rgb(16, 172, 16);
+    cursor: pointer;
+}
+
+.forms{
+    display: flex;
+    flex-flow: column;
+}
+
+input{
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+div.password{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+}
+
+div.password img{
+    height: 1.3rem;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+button#show-hide-pass{
+    background-color: transparent;
+    height: fit-content;
+    padding: 0;
+    margin: 0;
+}
+
+.forms span{
+    margin-top: 3px;
+    text-decoration: underline;
+    text-align: end;
+    cursor: pointer;
+    opacity: .5;
+}
+
+/*#endregion */
+
+/* #region Manager */
+
+.manager{
+    position: relative;
+    min-height: 600px;
+    width: 100%;
+    min-width: fit-content;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding: 20px;
+}
+
+    .manager-rows{
+        display: flex;
+        flex-flow: column;
+        width: fit-content;
+    }
+
+    .row{
+        display: flex;
+        flex-flow: column;
+    }
+
+    .row-main, .row-guide{
+        border-bottom: 2px solid black;
+        position: relative;
+        display: flex;
+        flex-flow: row nowrap;
+        cursor: pointer;
+    }
+    .row:nth-child(odd) .row-main{
+        background-color: var(--beige-darker);
+    }
+    .row-guide{
+        background-color: var(--beige-titles);
+        font-weight: bolder;
+        cursor: default;
+    }
+
+    
+.row.row-options{
+    background-color: var(--beige) !important;
+    padding: 5px;
+    font-weight: bolder;
+    cursor: default;
+    display: flex;
+    flex-flow: row;
+    gap: 7px;
+    justify-content: flex-end;
+    border: none;
+}  
+
+    .row-options button{
+        height: 30px;
+        width: 30px;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        transition: all ease-in .1s;
+    }
+
+    .row-options button, .add-button{
+        background-color: green;
+        border: none;
+    }
+    .row-options button:hover,
+    .add-button:hover{
+        background-color: rgb(16, 172, 16);
+        cursor: pointer;
+    }
+    button.cancel-button{
+        background-color: rgb(128, 0, 0);
+        border: none;
+    }
+    button.cancel-button:hover{
+        background-color: rgb(172, 16, 16);
+        cursor: pointer;
+    }
+
+    .row-options button img{
+        height: 50%;
+        width: 50%;
+        filter: invert();
+    }
+
+    .column{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        border-right: 2px solid black;
+    }
+    .column:first-child{
+        border-right: none;
+    }
+    .column:last-child{
+        border-right: none;
+    }
+
+        .column.select{
+            width: 35px;
+            position: relative;
+            display: grid
+        }
+
+            .column .checkbox{
+                position: relative;
+                place-self: center;
+                border: 2px solid black;
+                width: 25px;
+                height: 25px;
+                display: grid;
+            }
+
+                .column .checkbox img{
+                    place-self: center;
+                    width: 100%;
+                    height: auto;
+                }
+
+                .column .checkbox[data-state="off"] img{
+                    display: none;
+                }
+
+
+        .column.name{
+            width: 180px;
+        }
+        .column.quantity{
+            width: 73px;
+        }
+        .column.price{
+            width: 180px;
+        }
+        .column.total{
+            width: 180px;
+        }
+        .column.date{
+            width: 180px;
+        }
+
+
+    .row-extended{
+        width: 828px;
+        padding: 10px 40px;
+        padding-inline: 40px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid black;
+        position: relative;
+        display: flex;
+        flex-flow: column;
+    }
+        .row.collapsed .row-extended{
+            display: none;
+        }
+
+      .row-extended p.details{
+        margin-block: 5px;
+      }
+      .row-extended p.creator{
+        margin-block: 5px;
+        width: 100%;
+        text-align: end;
+      }
+      .row-extended a{
+        color: blue;
+        text-decoration: underline;
+        margin-top: 5px;
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+      }
+    
+form#new-item{
+    position: fixed;
+    background-color: #A58261;
+    border: 3px black solid;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 60px;
+}
+
+    form#new-item h2{
+        font-size: 26px;
+        color: black;
+        margin-top: 0;
+    }
+
+    form#new-item label{
+        font-size: 18px;
+        font-weight: bold;
+        margin-block: 5px;
+    }
+
+    form#new-item input[type="number"]{
+        text-align: center;
+        width: 10ch;
+    }
+
+    form#new-item .options{
+        margin-top: 10px;
+        display: flex;
+        flex-flow: row;
+        gap: 10px;
+    }
+
+    form#new-item .options button{
+        font-size: 22px;
+        color: white;
+        padding: 1ch;
+        border-radius: 10px;
+        font-weight: bold;
+        text-align: center;
+        position: relative; 
+    }
+
+/* #endregion */

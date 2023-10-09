@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+{% load static %}
+
+{% block javascript %}
+<script src="{% static "scripts/login-screen.js"%}" defer></script>
+{% endblock javascript %}
+
+{% block content %}
+
+    <h1>GeeDeeGee</h1>
+    <h2 id="h2">Your expense management application</h2>
+
+    <div class="login">
+        <div class="buttons" id="main-login-buttons">
+            <button class="logbtn" id="singupbtn">Sing Up</button>
+            <button class="logbtn" id="loginbtn">Log In</button>
+        </div>
+
+        <form class="forms d-none" id="singup-form" action="">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Username">
+            <label for="email">Username</label>
+            <input type="email" name="email" id="email" placeholder="yourmail@geedeegee.com">
+            <label for="password">password</label>
+            <div class="password">
+                <input type="password" name="password" id="password">
+                <button id="show-hide-pass" type="button"><img src="{% static "images/eye.svg" %}"/></button>
+            </div>
+            <button type="submit">Sing Up</button>
+            <span id="already-registered">I'm already registered</span>
+        </form>
+
+        <form class="forms d-none" id="login-form" action="">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Username">
+            <label for="password">password</label>
+            <div class="password">
+                <input type="password" name="password" id="password">
+                <button id="show-hide-pass" type="button"><img src="{% static "images/eye.svg" %}"/></button>
+            </div>
+            <button type="submit">Log In</button>
+            <span id="not-registered">Sing Up</span>
+        </form>
+
+ 
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeeDeeGee</title>
+
+    {% comment %} Styles {% endcomment %}
+    <link rel="stylesheet" href="{% static "styles/normalize.css" %}">
+    <link rel="stylesheet" href="{% static "styles/styles.css" %}">
+
+    {% comment %} Fonts {% endcomment %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,100&display=swap" rel="stylesheet">
+
+    {% block javascript %}
+    {% endblock javascript %}
+</head>
+<body>
+    <nav>
+        <a id="logo" href="/">GeeDeeGee</a>
+        <a href="/manager">Manager</a>
+        <a href="/">Profile</a>
+    </nav>
+
+    <div id="content">
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+    <footer>
+        <a href="https://pablo-chocho.web.app/" target="_blank">Created by Pablo Chocho</a>
+    </footer>
+
+</body>
+</html>
